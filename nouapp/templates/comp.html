@@ -1,0 +1,93 @@
+{% extends 'studentzone.html' %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block student %}
+
+    <div class="container-fluid bg-white" style="height: 100%;">
+        <div class="row">
+            <div class="col-sm-12 text-center mt-3">
+                <h1>Complaint</h1>
+            </div>
+            <div class="col-sm-12">
+                {% for mess in messages %}
+                <div class="alert alert-primary" role="alert">
+                    {{mess}}
+                  </div>
+
+
+
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-sm-12 ">
+            <form action="{% url 'compsave' %}" method="post">
+                {% csrf_token %}
+                <div class="row border border-dark shadow bg-light mt-3" style="height: 280px;">
+                    <div class="col-sm-12 mt-2">
+                        <p>Enter Subject</p>
+                        <input type="text" name="subject" class="form-control border-dark rounded-0">
+                    </div>
+                    <div class="col-sm-12" style="margin-top: -10px;">
+                        <p>Comp</p>
+                        <div>
+                            <textarea name="comp" id="" class="form-control border-dark rounded-0"></textarea>
+                        </div>
+                    </div>
+                   
+                
+                    <div class="col-sm-12">
+                    <input type="submit" class="btn form-control rounded-0"  style="background-color: darkred;color:white">
+                    </div>
+                </div>
+            </form>
+        </div>    
+        <div class="col-sm-12 mt-5">
+            <table class="table">
+                <thead>
+                    <tr style="background-color: darkred;">
+                        <th style="color: white !important;">Srno</th>
+                        <th style="color: white !important;">Name</th>
+                        <th style="color: white !important;">Program</th>
+                        <th style="color: white !important;">Branch</th>
+                        <th style="color: white !important;">Year</th>
+                        <th style="color: white !important;">Subject</th>
+                        <th style="color: white !important;">Complaint</th>
+                        <th style="color: white !important;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in ab %}
+                    <tr>
+                        <td>{{i.id}}</td>
+                        <td>{{i.name}}</td>
+                        <td>{{i.program}}</td>
+                        <td>{{i.branch}}</td>
+                        <td>{{i.year}}</td>
+                        <td>{{i.subject}}</td>
+                        <td>{{i.comp}}</td>
+                        <td>
+                            <a href=""><i class="fa-solid fa-pen-to-square" style="color: #63E6BE;"></i></a>
+                            <a href="{% url 'deletecomp' i.id %}"><i class="fa-solid fa-trash" style="color: #e40c2c;"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+    {% endblock %}
+</body>
+</html>

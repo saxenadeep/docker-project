@@ -1,0 +1,63 @@
+{% extends 'adminzone.html' %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- linear-gradient(black, black),  -->
+    {% block admin %}
+    
+    
+   
+    <!-- main body -->
+    <!-- action="{% url 'regsave' %}" -->
+    <form action="{% url 'ecompsave' show.id %}"    method="post">
+        {% csrf_token %}
+    
+    <div class="row border m-4 p-4 shadow">
+        <div class="col-sm-6 mt-3">
+            <p>Enter id.</p>
+            <input type="text" name="id" class="form-control border-dark rounded-0" value="{{show.id}}">
+        </div>
+        <div class="col-sm-6 mt-3">
+            <p>Enter Name</p>
+            <input type="text" name="name" class="form-control border-dark rounded-0" value="{{show.name}}">
+        </div>
+        <div class="col-sm-6 mt-3">
+            <p>Enter program</p>
+            <input type="text" name="program" class="form-control border-dark rounded-0" value="{{show.program}}">
+        </div>
+        <div class="col-sm-6 mt-3">
+            <p>Enter branch</p>
+            <input type="text" name="branch" class="form-control border-dark rounded-0" value="{{show.branch}}">
+        </div>
+        
+        <div class="col-sm-6 mt-3">
+            <p>Enter year</p>
+            <textarea name="year" class="form-control border-dark rounded-0">{{show.year}}</textarea>
+        </div>
+        <div class="col-sm-6 mt-3">
+            <p>Enter subject</p>
+            <input type="text" name="subject" class="form-control border-dark rounded-0" value="{{show.subject}}">
+        </div>
+        <div class="col-sm-6 mt-3">
+            <p>Enter Complaint</p>
+            <input type="text" name="comp" class="form-control border-dark rounded-0" value="{{show.comp}}">
+        </div>
+        
+        
+        <div class="col-sm-12 mt-3">
+            <input type="submit" class="form-control rounded-0" style="background-color: darkred; color: white">
+    
+        </div>
+    </div>
+    
+</form>
+    {% endblock %}
+</body>
+</html>

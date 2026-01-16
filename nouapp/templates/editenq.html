@@ -1,0 +1,72 @@
+{% extends 'adminzone.html' %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- linear-gradient(black, black),  -->
+    {% block admin %}
+    
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="text-center mt-2">Edit Enquiries</h1>
+        </div>
+    </div>
+   
+    <!-- main body -->
+    <!-- action="{% url 'regsave' %}" -->
+   <div class="row">
+    <div class="col-sm-12">
+        <form action="{% url 'enqsave' show.id %}"    method="post">
+            {% csrf_token %}
+        
+        <div class="row border m-4 p-4 shadow">
+            
+            
+            <div class="col-sm-6 mt-3">
+                <p>Enter Name</p>
+                <input type="text" name="name" class="form-control border-dark rounded-0" value="{{show.name}}">
+            </div>
+            
+            <div class="col-sm-6 mt-3">
+                <p>Enter Gender</p>
+                Male&nbsp;<input type="radio" name="gender" value="Male">
+                Female&nbsp;<input type="radio" name="gender" value="Female">
+                Other&nbsp;<input type="radio" name="gender" value="Other">
+            </div>
+            <div class="col-sm-6 mt-3">
+                <p>Enter Address</p>
+                <textarea name="address" class="form-control border-dark rounded-0">{{show.address}}</textarea>
+            </div>
+            <div class="col-sm-6 mt-3">
+                <p>Enter ContactNo</p>
+                <input type="text" name="contactno" class="form-control border-dark rounded-0" value="{{show.contactno}}">
+            </div>
+            <div class="col-sm-6 mt-3">
+                <p>Enter Email</p>
+                <input type="email" name="email" class="form-control border-dark rounded-0" value="{{show.email}}">
+            </div>
+            <div class="col-sm-6 mt-3">
+                <p>Enter Enquirytext</p>
+                <input type="text" name="enquirytext" class="form-control border-dark rounded-0" value="{{show.enquirytext}}">
+            </div>
+    
+            
+            
+            <div class="col-sm-12 mt-3">
+                <input type="submit" value="Update" class="form-control rounded-0" style="background-color: darkred; color: white">
+        
+            </div>
+        </div>
+        
+    </form>
+    </div>
+   </div>
+    {% endblock %}
+</body>
+</html>

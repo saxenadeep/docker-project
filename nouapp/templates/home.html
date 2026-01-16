@@ -1,0 +1,373 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+
+{% load static %}    
+        
+        <!-- slider -->
+        <div class="row" style="margin-top: -25px;">
+            <div class="col-sm-12">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="{% static 'img/love.jpeg' %}" class="d-block w-100" height="600px">
+                      </div>
+                      <div class="carousel-item active">
+                        <img src="{% static 'img/bsa.jpeg' %}" class="d-block w-100" height="600px">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{% static 'img/bsa-2.jpeg' %}" class="d-block w-100" alt="..." height="600px">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{% static 'img/bsa-4.jpeg' %}" class="d-block w-100" alt="..." height="600px">
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <!-- slider -->
+        
+        <!-- section1 -->
+        <div class="row">
+            <div class="col-sm-12" style="background-color: orange;">
+                <marquee behavior="" direction="">
+                    <div class="d-flex">
+                        <div class="a p-3 m-3" style="background-color: darkred; color: white; height: 100px; width: 500px"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br> Commodi, autem consectetur soluta expedita ratione iusto maxime. <br> Facilis laboriosam atque nulla?</p></div>
+                        <div class="a ms-4 p-3 m-3" style="background-color: darkred; color: white; height: 100px; width: 500px"><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br> Sit neque eius voluptas necessitatibus? Quidem, sequi possimus. <br> Sit quod iure expedita?</p></div>
+                        <div class="a ms-4 p-3 m-3" style="background-color: darkred; color: white; height: 100px; width: 500px"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br> Amet dolor tempora numquam quam enim culpa accusantium  <br> magni doloribus, ex aperiam!</p></div>
+                    </div>
+                </marquee>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-6" style="margin-top: 80px;">
+                <h3 style="color: lightgrey;">DESCRIPTION</h3>
+                <h2 class="fw-bold" style="margin-top: -20px">ABOUT <span style="color: darkred;">BSA College E-Portal</span></h2>
+                <p style="margin-top: 50px; font-size: 20px"><b>BSA College</b> welcomes all our students, faculties & study centres to the very new & innovative online study portal. The portal is a unique initiative by Hon'ble Chairman ADV Shri Uma Shankar Agrawal, which aims at providing online study material to the students of BSA.</p>
+                <p style="margin-top: 40px; font-size: 20px">The portal is accessible from any hook and corner of the world if the system allows the permission to its users. It is also fully secured and accessible 24 x 7 to its authorised users. It will resolve the academic issues such as E-content Distribution, Delivery, Tracking, Assessment, Progress Monitoring & Controlling of all stakeholders of the system i.e. students, teachers, study centre administrators as well as College Admins when they are at a distance.</p>
+            </div>
+            <div class="col-sm-5 " style="margin-top: 200px;">
+                <img src="{% static 'img/bsa.jpeg' %}" style="width: 400px; height: 250px; margin-top: 60px; margin-left: -20px; position: absolute">
+                <img src="{% static 'img/virtual.jpg' %}" style="width: 90%; height: 100%; margin-left: 80px">
+            </div>
+        </div>
+        
+        
+        <div class="row" style="margin-top: 100px;">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <h6 style="color: grey;">FEATURES</h6>
+                <h2 class="fw-bold" style="margin-top: -10px;">STUDENT <span style="color: darkred;">SERVICES</span></h2>
+            </div>
+            <div class="col-sm-2 mt-5" style="margin-left: 130px">
+                <div class="div" style="height: 300px; width: 300px; border: 1px solid black;">
+                    <img src="{% static 'img/registration.jpg' %}" alt="" width="90%">
+                    <div class="div">
+                        <p style="background-color: darkred; padding: 4px; text-align: center;color:white">Login</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-2 mt-5" >
+                <div class="div" style="height: 300px; width: 300px; border: 1px solid black; margin-left: 90px">
+                    <img src="{% static 'img/dashboard.jpg' %}" alt="" width="90%">
+                    <div class="div">
+                        <p style="background-color: darkred; padding: 4px; text-align: center;color:white">Dashboard</p>
+                    </div>
+                
+                </div>
+
+            </div>
+            <div class="col-sm-2 mt-5">
+                <div class="div" style="height: 300px; width: 300px; border: 1px solid black; margin-left: 180px">
+                    <img src="{% static 'img/online-courses.jpg' %}" alt="" width="90%">
+                    <div class="div">
+                        <p style="background-color: darkred; padding: 4px; text-align: center;color:white">Self Learning Material (SLM)</p>
+                    </div>
+                
+                </div>
+
+            </div>
+            <div class="col-sm-2 mt-5">
+                <div class="div" style="height: 300px; width: 300px; border: 1px solid black; margin-left: 270px">
+                    <img src="{% static 'img/e-lectures.jpg' %}" alt="" width="90%">
+                    <div class="div">
+                        <p style="background-color: darkred; padding: 4px; text-align: center;color:white">e-Books</p>
+                    </div>
+                
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-2 mt-5" style="margin-left: 40px;" >
+                    <div class="div" style="height: 300px; width: 300px; border: 1px solid black; margin-left: 90px">
+                        <img src="{% static 'img/self-assessment.svg' %}" alt="" width="70%" height="70%" style="margin-left: 40px;margin-top: 40px">
+                        <div class="div">
+                            <p style="background-color: darkred; padding: 4px; text-align: center;color:white; margin-top: 17px">Self-Assessment Tools</p>
+                        </div>
+                    
+                    </div>
+    
+                </div>
+                <div class="col-sm-2 mt-5" style="margin-left: 95px;" >
+                    <div class="div" style="height: 300px; width: 300px; border: 1px solid black; margin-left: 90px">
+                        <img src="{% static 'img/performance.jpg' %}" alt="" width="90%">
+                        <div class="div">
+                            <p style="background-color: darkred; padding: 4px; text-align: center;color:white">Performance</p>
+                        </div>
+                    
+                    </div>
+    
+                </div>
+                <div class="col-sm-2 mt-5" style="margin-left: 95px;" >
+                    <div class="div" style="height: 300px; width: 300px; border: 1px solid black; margin-left: 90px">
+                        <img src="{% static 'img/feedback.jpg' %}" alt="" width="90%">
+                        <div class="div">
+                            <p style="background-color: darkred; padding: 4px; text-align: center;color:white">Feedback</p>
+                        </div>
+                    
+                    </div>
+    
+                </div>
+                <div class="col-sm-2 mt-5" style="margin-left: 95px;" >
+                    <div class="div" style="height: 300px; width: 300px; border: 1px solid black; margin-left: 90px">
+                        <img src="{% static 'img/course-catlog.jpg' %}" alt="" width="90%">
+                        <div class="div">
+                            <p style="background-color: darkred; padding: 4px; text-align: center;color:white">Courses-Catalogue</p>
+                        </div>
+                    
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="background-color: lightgrey; margin-top: 80px; height: 500px">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10" style="margin-top: 60px;">
+                <h6 style="color: grey;">OUR MENTORS</h6>
+                <h2 style="margin-top: -10px;" class="fw-bold">ADMINISTRATIVE <span style="color: darkred;">SETUP</span></h2>
+            </div>
+
+            <div class="col-sm-2" style="margin-top: -50px;">
+                <div class="div text-center" style="height: 250px; width: 250px; margin-left:130px ; background-color: white; border: 1px solid black">
+                    <img src="{% static 'img/chair.png' %}" height="50%" style="margin-top: 20px; border-radius: 50%; border:1px double darkred">
+                    <h2 style="color: darkred; font-size: 20px; margin-top: 20px">Adv.Shri Uma Shankar Agrawal</h2>
+                    <p style="margin-top: -5px">Chairman</p>
+                
+                </div>
+            
+            </div>
+            <div class="col-sm-2" style="margin-top: -80px;">
+                <div class="div text-center" style="height: 250px; width: 250px; margin-top: 30px; margin-left:200px ; background-color: white; border: 1px solid black">
+                    <img src="{% static 'img/vc2.jpg' %}" height="50%" style="margin-top: 20px; border-radius: 50%; border:1px double darkred">
+                    <h2 style="color: darkred; font-size: 20px; margin-top: 20px">Er. Nitin Mittal</h2>
+                    <p style="margin-top: -5px">Vice Chairman</p>
+                </div>
+            
+            </div>
+            <div class="col-sm-2" style="margin-top: -80px;">
+                <div class="div text-center" style="height: 250px; width: 250px; margin-top: 30px; margin-left:260px ; background-color: white; border: 1px solid black">
+                    <img src="{% static 'img/direct.jpeg' %}" height="50%" style="margin-top: 20px; border-radius: 50%; border:1px double darkred">
+                    <h2 style="color: darkred; font-size: 20px; margin-top: 20px">Dr. (Prof.) Shyam S Agrawal</h2>
+                    <p style="margin-top: -5px">Director</p>
+                
+ 
+                </div>
+            
+            </div>
+            <div class="col-sm-2" style="margin-top: -80px;">
+                <div class="div text-center" style="height: 250px; width: 250px; margin-top: 30px; margin-left:320px ; background-color: white; border: 1px solid black">
+                    <img src="{% static 'img/img1.jpeg' %}" height="50%" style="margin-top: 20px; border-radius: 50%; border:1px double darkred">
+                    <h2 style="color: darkred; font-size: 20px; margin-top: 20px">Shri Pramod Kumar Garg</h2>
+                    <p style="margin-top: -5px">Board Member</p>
+                
+                </div>
+            
+            </div>
+        </div>
+
+
+           <div class="row">
+             <div class="col-sm-1"></div>
+                    <div class="col-sm-10">
+                        <h5 class="mt-5">COURSES</h5>
+                        <h1 style="margin-top: -15px;">OUR <span style="color: darkred;">COURSES</span></h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-3 mt-5 shadow" style="border: 1px solid white; height:400px; width: 25%">
+                <img src="{% static 'img/bba.png' %}" alt="" class="w-100 mt-4">
+                <h4 class="text-center mt-4">Bachelor In Business</h4>
+                <h4 class="text-center" style="margin-left: 10px; margin-top: -10px">Administration (BBA)</h4>
+                
+            </div>
+            <div class="col-sm-3 mt-5 shadow" style="border: 1px solid white; height:400px; width: 25%; margin-left: 60px">
+                <img src="{% static 'img/bca.png' %}" alt="" class="w-100 mt-4">
+                <h4 class="text-center mt-4">Bachelor In Computer</h4>
+                <h4 class="text-center" style="margin-left: 10px; margin-top: -10px">Application (BCA)</h4>
+                
+            </div>
+            <div class="col-sm-3 mt-5 shadow" style="border: 1px solid white; height:400px; width: 25%; margin-left: 60px">
+                <img src="{% static 'img/mca.png' %}" alt="" class="w-100 mt-4">
+                <h4 class="text-center mt-4">Master In Computer</h4>
+                <h4 class="text-center" style="margin-left: 10px; margin-top: -10px">Application (MCA)</h4>
+                
+            </div>
+        </div>
+
+
+
+
+<!--         
+        <div class="row">
+            <div class="col-sm-6 bg-info" style="height: 100vh;"></div>
+            <div class="col-sm-6 bg-danger" style="height: 100vh;"></div>
+        </div>
+       -->
+        
+        <div class="row mt-5">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5" style="margin-top: 70px;">
+                <h6 style="color: grey;">HELPDESK</h6>
+                <h2 class="fw-bold" style="margin-top: -10px;">ALWAYS <span style="color: darkred;">HERE TO SUPPORT YOU!</span></h2>
+                <img src="{% static 'img/helpline.svg' %}" height="350px" width="500px">
+            </div>
+            <div class="col-sm-5">
+                <div class="div" style="background-color: darkorange; height: 110px; width: 500px; margin-top: 30%">
+                    <p style="color: white; font-size: 16px; margin-left: 20px;margin-top: 10px" class="mt-2">The help desk provides user assistance to navigate and understand the aspects of the portal. This also provides a simple interface for maintenance
+                        of student information and issues faced.
+                        </p>
+                </div>
+                <div class="div" style="border: 1px solid black; height: 85px; width: 500px; margin-top: 10px">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <h4 style="margin-left: 35px; margin-top: 20px"><i class="fa fa-phone" style="color: orange"></i></h4>
+                        </div>
+                        <div class="col-sm-6">
+                            <h5 style="margin-top: 20px">+91 7017552050</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="div" style="border: 1px solid black; height: 85px; width: 500px; margin-top: 10px">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <h4 style="margin-left: 35px; margin-top: 20px"><i class="fa fa-envelope" style="color: orange"></i></h4>
+                        
+                        </div>
+                        <div class="col-sm-6">
+                            <h5 style="margin-top: 20px">bsacethelp@gmail.com</h5>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<div class="row" style="margin-top: 100px; background-color: lightgray; height: 380px; ">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10" style="margin-top: 60px;">
+        <h5 style="color: grey;">LINKS</h5>
+        <h2 style="margin-top: -10px;" class="fw-bold">QUICK <span style="color: darkred;">LINKS</span></h2>
+    </div>
+
+    <div class="col-sm-3" style="height: 120px; width: 380px; border: 1px solid black; margin-left: 140px; background-color: white;">
+        <div class="col-sm-1">
+            <img src="{% static 'img/logo1.png' %}"  height="110px" width="120px">
+        </div>
+        <div class="col-sm-1">
+            <h2 style="color: darkred; margin-left: 650%; margin-top: -110px">NOU</h3>
+            <p style="margin-left: 580%; font-size: 18px;">NALANDA&nbsp;OPEN &nbsp;&nbsp;&nbsp;&nbsp;UNIVERSITY</p>
+        </div>
+        
+    </div>
+    <div class="col-sm-3" style="height: 120px; width: 380px; border: 1px solid black; margin-left: 40px; background-color: white;">
+        <div class="col-sm-1">
+            <img src="{% static 'img/logo2.png' %}"  height="110px" width="120px">
+        </div>
+        <div class="col-sm-1">
+            <h2 style="color: darkred; margin-left: 650%; margin-top: -110px">STD</h3>
+                <p style="margin-left: 530%; font-size: 18px;">SCIENCE&nbsp;&&nbsp;TECHNOLOGY &nbsp;&nbsp;&nbsp;&nbsp;DEPARTMENT</p>
+        </div>
+        
+    </div>
+    <div class="col-sm-3" style="height: 120px; width: 380px; border: 1px solid black; margin-left: 40px; background-color: white;">
+        <div class="col-sm-1">
+            <img src="{% static 'img/logo3.png' %}"  height="110px" width="120px">
+        </div>
+        <div class="col-sm-1">
+            <h2 style="color: darkred; margin-left: 650%; margin-top: -110px">UGC</h3>
+                <p style="margin-left: 580%; font-size: 18px;">UNIVERSITY&nbsp;GRANTS &nbsp;&nbsp;&nbsp;&nbsp;COMMISSION</p>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+        <div class="row mt-5">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10 mt-4">
+                <h6 style="color: grey;">FEEDBACK</h6>
+                <h2 class="fw-bold" style="margin-top: -8px;">FEEDBACK <span style="color: darkred;">FROM OUR STUDENTS</span></h2>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-10">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="col-sm-5">
+                      <div class="carousel-item active">
+                        <div class="col-sm-1">
+                            <img src="{% static 'img/t1.jpg' %}" class="d-block" height="250px">
+                     
+                        </div>
+                        <div class="col-sm-9">
+                            <p style="margin-left: 75%; margin-top: -210px; font-size: 20px"><b>"This&nbsp;is&nbsp;best&nbsp;and&nbsp;biggest&nbsp;unified&nbsp;platform&nbsp;for&nbsp;instant&nbsp;online&nbsp;learning&nbsp;.&nbsp;We&nbsp;can&nbsp;easily&nbsp;access&nbsp;any&nbsp;
+                                
+                                content&nbsp;of&nbsp;our&nbsp;enrolled&nbsp;course&nbsp;from&nbsp;the&nbsp;portal&nbsp;.&nbsp;Thank&nbsp;you&nbsp;BSA&nbsp;College!!“</b></p>
+                                <h5 style="margin-left: 75%;margin-top: 40px; color: grey">-&nbsp;Shreya&nbsp;Maheshwari-
+                                    College&nbsp;Student</h5>
+                        </div>
+                         </div>
+                        <div class="col-sm-5" style="height: 400px">
+                             <div class="carousel-item">
+                                <div class="col-sm-1">
+                                    <img src="{% static 'img/t2.jpg' %}" class="d-block" height="250px">
+                             
+                                </div>
+                                <div class="col-sm-9">
+                                    <p style="margin-left: 145%; margin-top: -210px; font-size: 20px"><b>"This&nbsp;is&nbsp;best&nbsp;and&nbsp;biggest&nbsp;unified&nbsp;platform&nbsp;for&nbsp;instant&nbsp;online&nbsp;learning&nbsp;.&nbsp;We&nbsp;can&nbsp;easily&nbsp;access&nbsp;any&nbsp;content&nbsp;of
+                                     our&nbsp;enrolled&nbsp;course&nbsp;from&nbsp;the&nbsp;portal&nbsp;.&nbsp;Thank&nbsp;you&nbsp;BSA&nbsp;College!!“</b></p>
+                                    <h5 style="margin-left: 140%;margin-top: 40px; color: grey">-&nbsp;Deepansh&nbsp;Saxena-
+                                    College&nbsp;Student</h5>
+                                </div>
+                             </div>
+                         
+                      <div class="carousel-item">
+                        <!-- <img src="{% static 'img/t4.jpg' %}" class="d-block" alt="..."> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<!-- main container -->
+
+<div class="row">
+    <div class="col-sm-12" style="background-image:url(../static/img/new.jpg); background-repeat:norepeat; background-size:cover; height: 400px">
+        <h1 class="text-light" style="margin-top: 20px; margin-left: 100px">Contact Page</h1>
+        <p style="margin-left: 100px; color: white"><a href="" style="color: white;">Contact</a>&nbsp;/<a href="" style="color: white;">Us</a></p>
+
+    </div>
+</div>
+<div class="row p-3">
+    <div class="col-sm-6">
+        <div class="row m-4">
+            <div class="col-sm-5 border border-dark p-5 me-5">
+                <span style="font-size: 50px; margin-left: 60px"><i class="fa-solid fa-phone"></i></span>
+                <h5 class="text-center fw-bold">Call Us</h5>
+                <p class="test-center mb-0">+91 00000&nbsp;00000</p>
+                <p class="text-center mt-0">+91 00000&nbsp;00000</p>
+            </div>
+            <div class="col-sm-5 border border-dark p-5 ">
+                <span style="font-size: 50px; margin-left: 60px"><i class="fa-solid fa-envelope"></i></span>
+                <h5 class="text-center fw-bold">Email Us</h5>
+                <p class="test-center mb-0">+91 00000&nbsp;00000</p>
+                <p class="text-center mt-0">+91 00000&nbsp;00000</p>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-10 ms-4 border border-dark" style="padding: 70px;">
+                <span style="font-size: 50px; margin-left: 230px"><i class="fa-solid fa-location-dot"></i>
+                </span>
+              
+                    <h5 class="text-center fw-bold">Location</h5>
+                    <p class="text-center mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                   
+
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-sm-6">
+        <form method="post">
+            {% csrf_token %}
+            <div class="row border shadow mt-4 p-3">
+                <div class="col-sm-6 mt-3">
+                    <p>Enter Name</p>
+                    <input type="text" name="name" class="form-control rounded-0 border-dark">
+                </div>
+                <div class="col-sm-6 mt-3">
+                    <p>Enter Gender</p>
+                    Male&nbsp;&nbsp;<input type="radio" name="gender" value="Male">
+                    Female&nbsp;&nbsp;<input type="radio" name="gender" value="Female">
+                    Other&nbsp;&nbsp;<input type="radio" name="gender" value="Other">
+                </div>
+                <div class="col-sm-6 mt-3">
+                    <p>Enter Address</p>
+                    <textarea name="address" class="form-control rounded-0 border-dark"></textarea>
+                </div>
+                <div class="col-sm-6 mt-3">
+                    <p>Enter Contact No</p>
+                    <input type="text" name="contactno" class="form-control rounded-0 border-dark">
+                </div>
+                <div class="col-sm-6 mt-3">
+                    <p>Enter Email</p>
+                    <input type="email" name="email" class="form-control rounded-0 border-dark">
+                </div>
+                <div class="col-sm-6 mt-3">
+                    <p>Enter Enquiry Text</p>
+                    <textarea name="enquirytext"  class="form-control rounded-0 border-dark"></textarea>
+
+                </div>
+                <div class="col-sm-12 mt-3">
+                    <input type="submit" class="form-control rounded-0 btn" style="background-color: darkred; color:white">
+                </div>
+          
+
+
+            </div>
+        </form>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'studentzone.html' %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+{% block student %}
+
+
+<div class="container" style="height: 100%;">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="mt-4 text-center">View Lecture</h1>
+
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm-12">
+            <table class="table">
+                <thead class="text-center">
+                    <tr style="background-color: darkred !important; color: white !important">
+                        <th class="text-light">SrNO.</th>
+                        <th class="text-light">Program</th>
+                        <th class="text-light">Branch</th>
+                        <th class="text-light">Year</th>
+                        <th class="text-light">Subject</th>
+                        <th class="text-light">See lecture</th>
+                        <th class="text-light">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    {% for mess1 in messages %}
+                    <div class="alert alert-danger" role="alert">
+                        {{mess1}}
+                      </div>
+            
+                    {% endfor %}
+               
+                    {% for i in ab %}
+                    <tr>
+                        <td>{{i.id}}</td>
+                        <td>{{i.program}}</td>
+                        <td>{{i.branch}}</td>
+                        <td>{{i.year}}</td>
+                        <td>{{i.subject}}</td>
+                        <td><a href="{{i.link}}" target="_blank"><i class="fa-solid fa-eye"></i>&nbsp;Read More</a></td>
+                        <td>
+                            <a href=""><i class="fa-solid fa-pen-to-square" style="color: #63E6BE;"></i></a>
+                            <a href=""><i class="fa-solid fa-trash" style="color: #e40c2c;"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
+</body>
+</html>

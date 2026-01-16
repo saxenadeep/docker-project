@@ -1,0 +1,55 @@
+{% extends 'adminzone.html' %}
+
+
+{% block admin %}
+
+<div class="container-fluid" style="height: 100%; " >
+    <h1 class="mt-5 text-center">Add Notifications</h1>
+    <div class="row">
+        <div class="col-sm-12">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="row border p-4 m-4 bg-light shadow">
+                    
+                    <div class="col-sm-12">
+                        <p>Enter Notifications</p>
+                        <input type="text" name="notif" class="form-control border border-dark">
+                        <input type="submit" style="background-color: darkred; color: white" class="form-control border border-dark rounded-0 mt-3">
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
+    </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table class="table">
+                            <thead>
+                                <tr style="background-color: darkred; color:white; text-align:center">
+                                    <th>Srno</th>
+                                    <th>Notification</th>
+                                    <th>Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for i in tb %}
+                                <tr class="text-center">
+                                    <td>{{i.id}}</td>
+                                    <td>{{i.notif}}</td>
+                                    <td>{{i.notireg}}</td>
+                                    <td>
+                                        <a href=""><i class="fa-solid fa-pen-to-square" style="color: #63E6BE;"></i></a>
+                                        <a href=""><i class="fa-solid fa-trash" style="color: #e40c2c;"></i></a>
+                                    </td>
+                                    
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            
+        </div>
+
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'adminzone.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block admin %}
+    <div class="container-fluid bg-white" style="height: 100%;">
+        <div class="row">
+            <div class="col-sm-12 text-center mt-3">
+                <h1>Edit Assignment</h1>
+            </div>
+            <div class="col-sm-12">
+                {% for mess in messages %}
+                <div class="alert alert-primary" role="alert">
+                    {{mess}}
+                  </div>
+
+
+
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-sm-12 ">
+            <form action="{% url 'asssave' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row border border-dark shadow bg-light mt-3" style="height: 400px;">
+                    <div class="col-sm-6 mt-3">
+                        <p>Enter Program</p>
+                        <input type="text" name="program" class="form-control rounded-0 border-dark" value="{{show.program}}">
+                    </div>
+                    <div class="col-sm-6 mt-3">
+                        <p>Enter branch</p>
+                        <input type="text" name="branch" class="form-control rounded-0 border-dark"  value="{{show.branch}}">
+                    </div>
+                    <div class="col-sm-6 mt-2">
+                        <p>Enter Year</p>
+                        <input type="text" name="year" class="form-control rounded-0 border-dark"  value="{{show.year}}">
+                    </div>
+                    <div class="col-sm-6 mt-2">
+                        <p>Enter Subject</p>
+                        <input type="text" name="subject"  class="form-control rounded-0 border-dark"  value="{{show.subject}}">
+                    </div>
+                    <div class="col-sm-12 mt-1">
+                        <p>Upload File</p>
+                        <div class="border border-dark rounded-0">
+                            <input type="file" name="new_file" class="p-2">
+                        </div>
+                        {% if show.new_file %}
+                            <p>Current File: <a href="{{ show.new_file.url }}">{{ show.new_file.name }}</a></p>
+                        {% else %}
+                            <p>No file uploaded.</p>
+                        {% endif %}
+                    </div>
+
+                    
+                
+                    <div class="col-sm-12 mt-1">
+                    <input type="submit" class="btn form-control rounded-0"  style="background-color: darkred;color:white">
+                    </div>
+                </div>
+            </form>
+        </div>    
+        
+    </div>
+
+
+    {% endblock %}
+</body>
+</html>

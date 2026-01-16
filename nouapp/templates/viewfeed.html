@@ -1,0 +1,55 @@
+{% extends 'adminzone.html' %}
+
+{% load static %}
+
+
+{% block admin %}
+<div class="container-fluid" style="height: 100%;">
+  <div class="row text-center p-3">
+    <div class="col-sm-12">
+        <h1>Show Feedback</h1>
+    </div>
+  </div>
+<div class="row mt-5">
+    <div class="col-sm-12">
+        <table class="table">
+            <thead>
+                <tr style="background-color: darkred;">
+                    <th style="color: white !important;">Srno</th>
+                    <th style="color: white !important;">Name</th>
+                    <th style="color: white !important;">Program</th>
+                    <th style="color: white !important;">Branch</th>
+                    <th style="color: white !important;">Year</th>
+                    <th style="color: white !important;">Subject</th>
+                    <th style="color: white !important;">Feedback</th>
+                    <th style="color: white !important;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in sh %}
+                <tr>
+                    <td>{{i.id}}</td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.program}}</td>
+                    <td>{{i.branch}}</td>
+                    <td>{{i.year}}</td>
+                    <td>{{i.subject}}</td>
+                    <td>{{i.feed}}</td>
+                    <td>
+                            <a href="{% url 'editfeed' i.id %}"><i class="fa-solid fa-pen-to-square" style="color: #63E6BE;"></i></a>
+                            <a href="{% url 'deletefeed' i.id %}"><i class="fa-solid fa-trash" style="color: #e40c2c;"></i></a>
+                    </td>
+                
+                </tr>
+                
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+</div>
+
+
+</div>
+
+{% endblock %}

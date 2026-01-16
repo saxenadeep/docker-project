@@ -1,0 +1,107 @@
+{% extends 'adminzone.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block admin %}
+    <div class="container-fluid bg-white" style="height: 100%;">
+        <div class="row">
+            <div class="col-sm-12 text-center mt-3">
+                <h1>Upload Assignment</h1>
+            </div>
+            <div class="col-sm-12">
+                {% for mess in messages %}
+                <div class="alert alert-primary" role="alert">
+                    {{mess}}
+                  </div>
+
+
+
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-sm-12 ">
+            <form action="{% url 'upasssave' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row border border-dark shadow bg-light mt-3" style="height: 400px;">
+                    <div class="col-sm-6 mt-3">
+                        <p>Enter Program</p>
+                        <input type="text" name="program" class="form-control rounded-0 border-dark">
+                    </div>
+                    <div class="col-sm-6 mt-3">
+                        <p>Enter branch</p>
+                        <input type="text" name="branch" class="form-control rounded-0 border-dark">
+                    </div>
+                    <div class="col-sm-6 mt-2">
+                        <p>Enter Year</p>
+                        <input type="text" name="year" class="form-control rounded-0 border-dark">
+                    </div>
+                    <div class="col-sm-6 mt-2">
+                        <p>Enter Subject</p>
+                        <input type="text" name="subject"  class="form-control rounded-0 border-dark">
+                    </div>
+                    <div class="col-sm-12 mt-1">
+                        <p>Upload File</p>
+                        <div class="border border-dark rounded-0">
+                        <input type="file"  name="new_file"  class="p-2">
+                    </div>
+                    </div>
+                    
+                
+                    <div class="col-sm-12 mt-1">
+                    <input type="submit" class="btn form-control rounded-0"  style="background-color: darkred;color:white">
+                    </div>
+                </div>
+            </form>
+        </div>    
+        <div class="col-sm-12 mt-4">
+            <table class="table">
+                <thead class="text-center">
+                    <tr style="background-color: darkred !important; color: white !important">
+                        <th class="text-light">SrNO.</th>
+                        <th class="text-light">Program</th>
+                        <th class="text-light">Branch</th>
+                        <th class="text-light">Year</th>
+                        <th class="text-light">Subject</th>
+                        <th class="text-light">View Assignment</th>
+                        <th class="text-light">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    {% for mess1 in messages %}
+                    <div class="alert alert-danger" role="alert">
+                        {{mess1}}
+                      </div>
+            
+                    {% endfor %}
+               
+                    {% for i in ab %}
+                    <tr>
+                        <td>{{i.id}}</td>
+                        <td>{{i.program}}</td>
+                        <td>{{i.branch}}</td>
+                        <td>{{i.year}}</td>
+                        <td>{{i.subject}}</td>
+                        <td><a href="{{i.new_file.url}}" target="_blank"><i class="fa-solid fa-eye"></i>&nbsp;Read More</a></td>
+                        <td>
+                            <a href="{% url 'editass' i.id %}"><i class="fa-solid fa-pen-to-square" style="color: #63E6BE;"></i></a>
+                            <a href="{% url 'deleteass' i.id %}"><i class="fa-solid fa-trash" style="color: #e40c2c;"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+
+    {% endblock %}
+</body>
+</html>

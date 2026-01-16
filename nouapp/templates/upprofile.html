@@ -1,0 +1,88 @@
+{% extends 'studentzone.html' %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- linear-gradient(black, black),  -->
+    {% block student %}
+    
+    
+   
+    <!-- main body -->
+    <!-- action="{% url 'regsave' %}" -->
+    <form action="{% url 'upsave' %}"    method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+    
+    <div class="row border m-4 p-4 shadow">
+        <div class="col-sm-6 mt-3">
+            <p>Enter roll no.</p>
+            <input type="text" name="rollno" class="form-control border-dark rounded-0" value="{{show.rollno}}">
+        </div>
+        <div class="col-sm-6 mt-3">
+            <p>Enter Name</p>
+            <input type="text" name="name" class="form-control border-dark rounded-0" value="{{show.name}}">
+        </div>
+        <div class="col-sm-6 mt-3">
+            <p>Enter FName</p>
+            <input type="text" name="fname" class="form-control border-dark rounded-0" value="{{show.fname}}">
+        </div>
+        <div class="col-sm-6 mt-3">
+            <p>Enter MName</p>
+            <input type="text" name="mname" class="form-control border-dark rounded-0" value="{{show.mname}}">
+        </div>
+        <div class="col-sm-6 mt-3">
+            <p>Enter Gender</p>
+            Male&nbsp;<input type="radio" name="gender" value="Male">
+            Female&nbsp;<input type="radio" name="gender" value="Female">
+            Other&nbsp;<input type="radio" name="gender" value="Other">
+        </div>
+        <div class="col-sm-6 mt-3">
+            <p>Enter Address</p>
+            <textarea name="address" class="form-control border-dark rounded-0">{{show.address}}</textarea>
+        </div>
+        <div class="col-sm-6 mt-3">
+            <p>Enter Program</p>
+            <input type="text" name="program" class="form-control border-dark rounded-0" value="show.program">
+        </div>
+        <div class="col-sm-6 mt-3">
+            <p>Enter Branch</p>
+            <input type="text" name="branch" class="form-control border-dark rounded-0" value="{{show.branch}}">
+        </div>
+        <div class="col-sm-6 mt-3">
+            <p>Enter Year</p>
+            <input type="text" name="year" class="form-control border-dark rounded-0" value="{{show.year}}">
+        </div>
+        <div class="col-sm-6 mt-3">
+            <p>Enter ContactNo</p>
+            <input type="text" name="contactno" class="form-control border-dark rounded-0" value="{{show.contactno}}">
+        </div>
+        <div class="col-sm-6 mt-3">
+            <p>Enter Email</p>
+            <input type="email" name="email" class="form-control border-dark rounded-0" value="{{show.email}}">
+        </div>
+        <div class="col-sm-6 mt-3">
+            <p>Enter Password</p>
+            <input type="text" name="password" class="form-control border-dark rounded-0" value="{{show.password}}">
+        </div>
+
+        <div class="col-sm-6 mt-3">
+            <p>Upload Profile</p>
+            <input type="file" name="upload_to" class="form-control border-dark rounded-0">
+        </div>
+        
+        <div class="col-sm-12 mt-3">
+            <input type="submit" class="form-control rounded-0" style="background-color: darkred; color: white">
+    
+        </div>
+    </div>
+    
+</form>
+    {% endblock %}
+</body>
+</html>

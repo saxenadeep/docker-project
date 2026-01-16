@@ -1,0 +1,57 @@
+{% extends 'adminzone.html' %}
+
+{% load static %}
+
+
+{% block admin %}
+<div class="container-fluid" style="height: 100%;">
+  <div class="row text-center p-3">
+    <div class="col-sm-12">
+        <h1>Show Enquiries</h1>
+    </div>
+  </div>
+<div class="row mt-2">
+    <div class="col-sm-12">
+        <table class="table">
+            <thead>
+                <tr style="background-color: darkred; color: white">
+                    <th>Sr no.</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Address</th>
+                    <th>Contactno</th>
+                    <th>Email</th>
+                    <th>enquirytext</th>
+                    <th>enquirydate</th>
+                    <th>Action</th>
+                </tr>
+        
+            </thead>
+            <tbody>
+                {% for i in sh %}
+                <tr>
+                    <td>{{i.id}}</td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.gender}}</td>
+                    <td>{{i.address}}</td>
+                    <td>{{i.contactno}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.enquirytext}}</td>
+                    <td>{{i.enqdate}}</td>
+                    <td>
+                        <a href="{% url 'editenq' i.id %}"><i class="fa-solid fa-pen-to-square" style="color: #63E6BE;"></i></a>
+                        <a href="{% url 'deleteenq' i.id %}"><i class="fa-solid fa-trash" style="color: #e40c2c;"></i></a>
+                    </td>
+                </tr>
+        
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+</div>
+
+
+</div>
+
+{% endblock %}
