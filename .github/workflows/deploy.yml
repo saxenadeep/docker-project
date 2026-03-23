@@ -1,28 +1,74 @@
-name: Django Direct Deploy (No Git Pull)
+# name: Django Direct Deploy (No Git Pull)
+
+# on:
+#   push:
+#     branches: [ master ]
+
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code from GitHub
+#         uses: actions/checkout@v4
+
+#       # STEP 1: GitHub से सारा कोड उठाकर सर्वर पर कॉपी करना
+#       - name: Copy Files to Server (SCP)
+#         uses: appleboy/scp-action@master
+#         with:
+#           host: ${{ secrets.SERVER_IP }}
+#           username: ${{ secrets.SERVER_USER }}
+#           key: ${{ secrets.SSH_PRIVATE_KEY }}
+#           source: "."  # पूरी रेपो उठाओ
+#           target: "/home/ubuntu/django-project" # यहाँ पेस्ट कर दो
+
+#       # STEP 2: सर्वर पर जाकर सेटअप और रन करना (SSH)
+#       - name: Setup and Run Server
+#         uses: appleboy/ssh-action@master
+#         with:
+#           host: ${{ secrets.SERVER_IP }}
+#           username: ${{ secrets.SERVER_USER }}
+#           key: ${{ secrets.SSH_PRIVATE_KEY }}
+#           script: |
+#             cd /home/ubuntu/django-project
+#             # अगर venv नहीं है तो बनाओ
+#             if [ ! -d "venv" ]; then
+#               python3 -m venv venv
+#             fi
+#             source venv/bin/activate
+#             pip install -r requirements.txt
+#             python3 manage.py migrate --noinput
+            
+#             # पुराना सर्वर मारो और नया चलाओ
+#             ps aux | grep manage.py | grep -v grep | awk '{print $2}' | xargs kill -9 || echo "No process running"
+#             nohup python3 manage.py runserver 0.0.0.0:8000 > /dev/null 2>&1 &
+
+
+
+name: Django Production Deploy (SCP + Gunicorn)
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master ]  # अपनी ब्रांच का नाम चेक कर लेना (main/master)
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code from GitHub
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      # STEP 1: GitHub से सारा कोड उठाकर सर्वर पर कॉपी करना
-      - name: Copy Files to Server (SCP)
+      # STEP 1: GitHub से सारा कोड उठाकर सर्वर पर कॉपी करना (SCP)
+      - name: Copy Files to Server
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "."  # पूरी रेपो उठाओ
-          target: "/home/ubuntu/django-project" # यहाँ पेस्ट कर दो
+          source: "."
+          target: "/home/ubuntu/django-project"
 
-      # STEP 2: सर्वर पर जाकर सेटअप और रन करना (SSH)
-      - name: Setup and Run Server
+      # STEP 2: सर्वर पर जाकर Dependencies इंस्टॉल करना और Gunicorn रीस्टार्ट करना (SSH)
+      - name: Setup and Restart Service
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SERVER_IP }}
@@ -30,14 +76,43 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /home/ubuntu/django-project
-            # अगर venv नहीं है तो बनाओ
+            
+            # 1. Virtual Environment चेक और सेटअप
             if [ ! -d "venv" ]; then
               python3 -m venv venv
             fi
             source venv/bin/activate
+            
+            # 2. Dependencies और Migrations
             pip install -r requirements.txt
             python3 manage.py migrate --noinput
+            python3 manage.py collectstatic --noinput
+
+            # 3. Professional Way: Gunicorn Service को रीस्टार्ट करना
+            # (नोट: इसके लिए सर्वर पर gunicorn.service फाइल पहले से बनी होनी चाहिए)
+            sudo systemctl restart gunicorn
             
-            # पुराना सर्वर मारो और नया चलाओ
-            ps aux | grep manage.py | grep -v grep | awk '{print $2}' | xargs kill -9 || echo "No process running"
-            nohup python3 manage.py runserver 0.0.0.0:8000 > /dev/null 2>&1 &
+            # 4. स्टेटस चेक (Optional - logs में दिखेगा)
+            sudo systemctl status gunicorn --no-pager
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
